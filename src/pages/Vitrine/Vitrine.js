@@ -71,6 +71,7 @@
           );
       }
   }
+
   export default index; 
   const stylemobile = StyleSheet.create({
       papergray:{
@@ -90,10 +91,10 @@
         padding:10, 
         marginLeft: 30,
          marginTop: 20, 
-     
       position:'absolute',
       justifyContent:'center',
-      alignItems:'center' 
-      }
+      alignItems:'center'
+    }, 
+      
     })
-                
+        

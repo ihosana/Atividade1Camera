@@ -5,5 +5,5 @@
    this.finalidade = finalidade;
     this.valor= valor;
     this.image=image;
- }
- } 
+ 
+ }} 

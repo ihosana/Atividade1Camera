@@ -63,7 +63,7 @@ export default class Banco {
                         var len = results.rows.length; 
                         for (let i = 0; i < len; i++) { 
                             let row = results.rows.item(i);
-                            const { id, nome, finalidade, valor, image } = row; 
+                            const { id, nome, finalidade, valor, image} = row; 
                             item.push({  id, nome, finalidade, valor, image }); 
                         } 
                         console.log(item); 
@@ -79,12 +79,12 @@ export default class Banco {
             }); 
         }); 
     } 
-    deletar(id) {  
+    excluir(id) {  
         console.log("apagando") 
         return new Promise((resolve) => {     
             this.conectar().then((db) => {       
                 db.transaction((tx) => {     
-                    tx.executeSql('DELETE FROM Object WHERE id = ?', [id]).then(([tx, results]) => {           
+                    tx.executeSql('DELETE FROM Item WHERE id = ?', [id]).then(([tx, results]) => {           
                         console.log(results);           
                         resolve(results);         
                     });       

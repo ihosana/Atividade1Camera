@@ -1,17 +1,14 @@
 import React,{Component} from 'react';
-/* Importamos os recursos necessarios para nossa navegação */
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/Ionicons';
-/* Importamos nossas páginas criadas para inserir dentro da navegação */
 import Home from './src/pages/Home/index';
 import Banco from './src/component/Banco';
 import Camera from './src/pages/Camera';
 import Sobre from './src/pages/Sobre/index';
 import Cadastro from './src/pages/Home/Cadastro';
 import Listagem from './src/pages/Vitrine/Listagem';
-import Status from './src/pages/Vitrine/Status';
 import { TextComponent } from 'react-native';
 const tela = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -57,13 +54,13 @@ render(){
         },
         headerTintColor:"navajowhite"}} />
           <tela.Screen name="Cadastro" component={Cadastro}
-         options={{ title: 'cadastro',
+         options={{ title: '',
         headerStyle:{
           backgroundColor:"black", },
         headerTintColor:"navajowhite"}}  />
       
            <tela.Screen name="Camera" component={Camera}
-         options={{ title: 'camera',
+         options={{ title: '',
         headerStyle:{
           backgroundColor:"black",
         },

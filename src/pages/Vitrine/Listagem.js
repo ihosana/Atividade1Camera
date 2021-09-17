@@ -27,10 +27,13 @@ class Listagem extends Component {
             this.setState({ lista:say})
         })
     };
-deletar(id){
-const banco = new Banco();
-banco.deletar(id).then(say =>{DevSettings.reload();} )
-}
+    
+    exclua(id) { 
+      const db = new Banco(); 
+       db.excluir(id).then(say => { 
+         DevSettings.reload(); 
+       }) 
+     }
   cadastrar(nome, finalidade, valor, image){
         const db = new Banco(); 
         const item = new Item (nome, finalidade, valor, image)
@@ -48,10 +51,7 @@ banco.deletar(id).then(say =>{DevSettings.reload();} )
            <View style={stylemobile.papergray}>
             
             <ScrollView>
-          
             <View>
-    
-        
         {this.state.lista.map(item => (
             <Status key={item.id}
               id={item.id}
@@ -59,7 +59,7 @@ banco.deletar(id).then(say =>{DevSettings.reload();} )
               finalidade={item.finalidade}
               image={item.image}
               valor={item.valor}
-           
+              exclua={this.exclua}
             ></Status>
           ))}
           </View> 
@@ -67,16 +67,15 @@ banco.deletar(id).then(say =>{DevSettings.reload();} )
             </View>
            </View>
     
-        );
+    );
     }
 }
 export default Listagem; 
 const stylemobile = StyleSheet.create({
     papergray:{
-     
        width: 300,
-        height: 900,
-        marginTop:20,
+        height: '95%',
+        marginTop:10,
         marginLeft:30,
         opacity:0.9,
       position:'absolute',
