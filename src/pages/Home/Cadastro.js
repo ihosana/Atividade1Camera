@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { View, Text, Button, Image, ScrollView, TextInput, CheckBox, StyleSheet, TouchableHighlight, TouchableOpacity, DevSettings } from 'react-native';
-import Itens from '../../component/Itens';
+
 import Item from '../../component/Item';
 import Sobre from '../Sobre';
 import Banco from '../../component/Banco';
@@ -79,7 +79,7 @@ class Cadastro extends Component {
               <TextInput onChangeText={(nome) => { this.setState({ nome: nome }) }} style={styleicon.inputs} placeholder="Insira o nome"></TextInput>
               <TextInput onChangeText={(finalidade) => { this.setState({ finalidade: finalidade }) }} style={styleicon.inputs} placeholder="Insira a finalidade"></TextInput>
               <TextInput onChangeText={(valor) => { this.setState({ valor: valor }) }} style={styleicon.inputs} placeholder="Insira o Valor"></TextInput>
-           
+
             </View>
             <View >
               <View style={{ flexDirection: 'row' }}>
@@ -91,11 +91,11 @@ class Cadastro extends Component {
                     Cadastrar
                   </Text>
                 </TouchableOpacity>
-                
+
               </View>
-              
+
             </View>
-            
+
           </View>
           <View style={styles.conta}>
             <View>
@@ -218,15 +218,15 @@ const styleicon = StyleSheet.create({
 const styles = StyleSheet.create({
   conta: {
     flex: 1,
-    marginRight:0,
-    marginTop:0,
-    width:360,
+    marginRight: 0,
+    marginTop: 0,
+    width: 360,
     flexDirection: 'column',
     backgroundColor: 'black',
   },
   preview: {
     flex: 1,
-    marginLeft:20,
+    marginLeft: 20,
     justifyContent: 'flex-end',
     alignItems: 'center',
   },

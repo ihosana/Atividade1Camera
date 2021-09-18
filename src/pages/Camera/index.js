@@ -1,9 +1,9 @@
-import React,{Component} from 'react';
+import React, { Component } from 'react';
 import { RNCamera } from 'react-native-camera';
 import CameraRoll from "@react-native-community/cameraroll";
 import Status from '../Vitrine/Status';
 import { View, Text, Button, Image, ScrollView, TextInput, CheckBox, StyleSheet, TouchableHighlight, TouchableOpacity, DevSettings } from 'react-native';
-import Itens from '../../component/Itens';
+
 import Item from '../../component/Item';
 import Sobre from '../Sobre';
 import Banco from '../../component/Banco';
@@ -15,7 +15,7 @@ class Camera extends Component {
       nome: "",
       finalidade: "",
       valor: "",
-      image:"",
+      image: "",
       item: [],
       lista: [],
     }
@@ -29,28 +29,28 @@ class Camera extends Component {
   };
 
 
-  fotografar = async () =>{
-    if(this.camera){
-      const options = {quality: 0.5, basea64: true };
+  fotografar = async () => {
+    if (this.camera) {
+      const options = { quality: 0.5, basea64: true };
       const data = await this.camera.takePictureAsync(options);
       console.log(data.uri);
-      
-        CameraRoll.save(data.uri);
-      this.setState({image: data.uri})
+
+      CameraRoll.save(data.uri);
+      this.setState({ image: data.uri })
     }
   };
   takePicture = async () => {
     if (this.camera) {
-      const options = { quality: 1};
+      const options = { quality: 1 };
       const data = await this.camera.takePictureAsync(options)
-        // Ira abrir uma pequena notificação para o usuário saber que a imagem foi salva
-        ToastAndroid.show(data.uri, ToastAndroid.SHORT);
-        console.log(data.uri);
+      // Ira abrir uma pequena notificação para o usuário saber que a imagem foi salva
+      ToastAndroid.show(data.uri, ToastAndroid.SHORT);
+      console.log(data.uri);
 
-        //Salva a imagem
-        CameraRoll.save(data.uri);
-    
-       
+      //Salva a imagem
+      CameraRoll.save(data.uri);
+
+
     }
   };
   cadastrar(nome, finalidade, valor, image) {
@@ -62,50 +62,50 @@ class Camera extends Component {
   render() {
     let back = require('../../img/img-1.jpeg');
     return (
-     <View style={styles.container}>
-      <View>
+      <View style={styles.container}>
+        <View>
           <View >
           </View>
           <View style={styleicon.orientaform}>
             <View style={styleicon.preenchimento}>
-              <Text style={{color:"white"}}>{this.state.image}</Text>
+              <Text style={{ color: "white" }}>{this.state.image}</Text>
             </View>
             <View >
-         
-          <RNCamera
-            ref={ref => {
-              this.camera = ref;
-            }}
-            style={styles.preview}
-            type={RNCamera.Constants.Type.back}
-            flashMode={RNCamera.Constants.FlashMode.on}
 
-            // Irá pedir permissão para acessar a câmera, caso não haja
-            androidCameraPermissionOptions={{
-              title: 'Permissão para usar a câmera',
-              message: 'Nós precisamos da sua permissão para usar a câmera',
-              buttonPositive: 'Ok',
-              buttonNegative: 'Cancelar',
-            }}
-            // Irá pedir permissão para acessar o áudio, caso não haja
-            androidRecordAudioPermissionOptions={{
-              title: 'Permissão para usar gravação de áudio',
-              message: 'Precisamos da sua permissão para usar seu áudio',
-              buttonPositive: 'Ok',
-              buttonNegative: 'Cancelar',
-            }}
-          />
-          <View style={{ flex: 0, flexDirection: 'row', justifyContent: 'center' }} >
-            <TouchableOpacity onPress={this.fotografar.bind(this)} style={styles.capture}>
-              <Text style={{ fontSize: 14 }}> TIRAR FOTO </Text>
-            </TouchableOpacity>
+              <RNCamera
+                ref={ref => {
+                  this.camera = ref;
+                }}
+                style={styles.preview}
+                type={RNCamera.Constants.Type.back}
+                flashMode={RNCamera.Constants.FlashMode.on}
+
+                // Irá pedir permissão para acessar a câmera, caso não haja
+                androidCameraPermissionOptions={{
+                  title: 'Permissão para usar a câmera',
+                  message: 'Nós precisamos da sua permissão para usar a câmera',
+                  buttonPositive: 'Ok',
+                  buttonNegative: 'Cancelar',
+                }}
+                // Irá pedir permissão para acessar o áudio, caso não haja
+                androidRecordAudioPermissionOptions={{
+                  title: 'Permissão para usar gravação de áudio',
+                  message: 'Precisamos da sua permissão para usar seu áudio',
+                  buttonPositive: 'Ok',
+                  buttonNegative: 'Cancelar',
+                }}
+              />
+              <View style={{ flex: 0, flexDirection: 'row', justifyContent: 'center' }} >
+                <TouchableOpacity onPress={this.fotografar.bind(this)} style={styles.capture}>
+                  <Text style={{ fontSize: 14 }}> TIRAR FOTO </Text>
+                </TouchableOpacity>
+              </View>
+            </View>
+
           </View>
         </View>
-           
-            </View>
-                      </View>
-                    
-     </View>
+
+      </View>
     );
   }
 }
@@ -118,42 +118,42 @@ const styleicon = StyleSheet.create({
     padding: 13,
     color: "white",
   },
-  nomecadastro:{
+  nomecadastro: {
     fontSize: 30,
-     alignItems: "center", 
-     color: "white" 
+    alignItems: "center",
+    color: "white"
   },
-  buttonphoto:{
-    
+  buttonphoto: {
+
     borderRadius: 15,
-     width: 100,
-      padding: 15,
-       marginRight: 20, 
-       marginTop: 2,
+    width: 100,
+    padding: 15,
+    marginRight: 20,
+    marginTop: 2,
     borderColor: "navajowhite",
-     borderWidth: 2
+    borderWidth: 2
   },
   inputs: {
     backgroundColor: "white",
     height: 40,
 
-        marginBottom: 10,
+    marginBottom: 10,
     borderRadius: 5
   },
-  imagem:{
+  imagem: {
     width: '100%',
-     height: 520,
-      margin: 0,
-       marginBottom: 0 
+    height: 520,
+    margin: 0,
+    marginBottom: 0
   },
-  cadastro:{
-     borderRadius: 15, 
-     width: 100, 
-     padding: 15, 
-     marginTop: 2,
-      marginRight: 10,
-       borderColor: "navajowhite",
-        borderWidth: 1.4 
+  cadastro: {
+    borderRadius: 15,
+    width: 100,
+    padding: 15,
+    marginTop: 2,
+    marginRight: 10,
+    borderColor: "navajowhite",
+    borderWidth: 1.4
   },
   papelcinza: {
     backgroundColor: "black",

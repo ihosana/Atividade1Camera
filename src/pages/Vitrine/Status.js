@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { View, Text, Button, Image, ScrollView, TextInput, CheckBox, StyleSheet, TouchableHighlight, TouchableOpacity } from 'react-native';
-import Itens from '../../component/Itens';
+
 import Item from '../../component/Item';
 import Sobre from '../Sobre';
 import Banco from '../../component/Banco';
@@ -17,7 +17,7 @@ class Status extends Component {
         <ScrollView>
 
 
-          <View style={{ backgroundColor: "white", width: 300, height: 500, marginTop: 20}}>
+          <View style={stylemobile.papelbranco}>
             <Text style={stylemobile.name}>{this.props.nome}</Text>
 
             <Image style={stylemobile.imagem} source={{ uri: this.props.image }} />
@@ -42,10 +42,9 @@ class Status extends Component {
 export default Status;
 const stylemobile = StyleSheet.create({
   papergray: {
-
     width: 300,
     height: 900,
-   marginBottom:200, 
+    marginBottom: 200,
     marginTop: 2,
     marginLeft: 50,
     opacity: 0.9,
@@ -53,41 +52,47 @@ const stylemobile = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center'
   },
-  name:{
+  name: {
     marginTop: 18,
-     fontSize: 17,
-      marginLeft: 20 ,
-      marginBottom:14
+    fontSize: 17,
+    marginLeft: 20,
+    marginBottom: 14
   },
   button: {
-    borderRadius: 1, 
-    height: 46, 
+    borderRadius: 1,
+    height: 46,
     width: 100,
-     padding: 11,
-      marginTop: 20,
-       marginLeft: 190,
-        backgroundColor: "peru"
+    padding: 11,
+    marginTop: 20,
+    marginLeft: 190,
+    backgroundColor: "peru"
   },
   imagem: {
-    width: 280, 
-    height: 180, 
-    marginLeft: 10, 
+    width: 280,
+    height: 180,
+    marginLeft: 10,
     marginTop: 0
   },
   titulo: {
     marginTop: 10,
-     fontSize: 17,
-      marginLeft: 20
+    fontSize: 17,
+    marginLeft: 20
   },
   subtitle: {
     marginTop: 10,
-     marginLeft: 20, 
-     fontSize: 16
+    marginLeft: 20,
+    fontSize: 16
   },
   texto: {
-    color: "white", 
+    color: "white",
     fontSize: 17,
-     marginLeft: 13
+    marginLeft: 13
+  },
+  papelbranco: {
+    backgroundColor: "white",
+    width: 300,
+    height: 500,
+    marginTop: 20
   },
   orientaform: {
     width: 300,
